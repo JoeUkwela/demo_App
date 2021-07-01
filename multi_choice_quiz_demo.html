@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Multichioce Quiz App</title>
+    <style>
+
+        h1,a{
+            text-align: center;
+        }
+        h5{
+            font-size: 20px;
+            text-align: center;
+        }
+        p{
+            text-align: center; 
+            font-size: 18px;
+        }
+        #cont{
+            border: 1px double black;
+            border-radius: 10px;
+        }
+        /* Media Queiries */ 
+        /* ----------- iPhone 4 and 4S ----------- */
+
+        /* Portrait and Landscape */
+        @media only screen 
+        and (min-device-width: 320px) 
+        and (max-device-width: 480px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+
+        }
+
+        /* Portrait */
+        @media only screen 
+        and (min-device-width: 320px) 
+        and (max-device-width: 480px)
+        and (-webkit-min-device-pixel-ratio: 2)
+        and (orientation: portrait) {
+        }
+
+        /* Landscape */
+        @media only screen 
+        and (min-device-width: 320px) 
+        and (max-device-width: 480px)
+        and (-webkit-min-device-pixel-ratio: 2)
+        and (orientation: landscape) {
+
+        }
+
+        /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+        /* Portrait and Landscape */
+        @media only screen 
+        and (min-device-width: 320px) 
+        and (max-device-width: 568px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+
+        }
+
+        /* Portrait */
+        @media only screen 
+        and (min-device-width: 320px) 
+        and (max-device-width: 568px)
+        and (-webkit-min-device-pixel-ratio: 2)
+        and (orientation: portrait) {
+        }
+
+        /* Landscape */
+        @media only screen 
+        and (min-device-width: 320px) 
+        and (max-device-width: 568px)
+        and (-webkit-min-device-pixel-ratio: 2)
+        and (orientation: landscape) {
+
+        }
+
+        /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+        /* Portrait and Landscape */
+        @media only screen 
+        and (min-device-width: 375px) 
+        and (max-device-width: 667px) 
+        and (-webkit-min-device-pixel-ratio: 2) { 
+
+        }
+
+        /* Portrait */
+        @media only screen 
+        and (min-device-width: 375px) 
+        and (max-device-width: 667px) 
+        and (-webkit-min-device-pixel-ratio: 2)
+        and (orientation: portrait) { 
+
+        }
+
+        /* Landscape */
+        @media only screen 
+        and (min-device-width: 375px) 
+        and (max-device-width: 667px) 
+        and (-webkit-min-device-pixel-ratio: 2)
+        and (orientation: landscape) { 
+
+        }
+
+        /* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+        /* Portrait and Landscape */
+        @media only screen 
+        and (min-device-width: 414px) 
+        and (max-device-width: 736px) 
+        and (-webkit-min-device-pixel-ratio: 3) { 
+
+        }
+
+        /* Portrait */
+        @media only screen 
+        and (min-device-width: 414px) 
+        and (max-device-width: 736px) 
+        and (-webkit-min-device-pixel-ratio: 3)
+        and (orientation: portrait) { 
+
+        }
+
+        /* Landscape */
+        @media only screen 
+        and (min-device-width: 414px) 
+        and (max-device-width: 736px) 
+        and (-webkit-min-device-pixel-ratio: 3)
+        and (orientation: landscape) { 
+
+        }
+
+        /* ----------- iPhone X ----------- */
+
+        /* Portrait and Landscape */
+        @media only screen 
+        and (min-device-width: 375px) 
+        and (max-device-width: 812px) 
+        and (-webkit-min-device-pixel-ratio: 3) { 
+
+        }
+
+        /* Portrait */
+        @media only screen 
+        and (min-device-width: 375px) 
+        and (max-device-width: 812px) 
+        and (-webkit-min-device-pixel-ratio: 3)
+        and (orientation: portrait) { 
+
+        }
+
+        /* Landscape */
+        @media only screen 
+        and (min-device-width: 375px) 
+        and (max-device-width: 812px) 
+        and (-webkit-min-device-pixel-ratio: 3)
+        and (orientation: landscape) { 
+
+        }
+                /* ----------- Galaxy S3 ----------- */
+
+        /* Portrait and Landscape */
+        @media screen 
+        and (device-width: 360px) 
+        and (device-height: 640px) 
+        and (-webkit-device-pixel-ratio: 2) {
+
+        }
+
+        /* Portrait */
+        @media screen 
+        and (device-width: 320px) 
+        and (device-height: 640px) 
+        and (-webkit-device-pixel-ratio: 2) 
+        and (orientation: portrait) {
+
+        }
+
+        /* Landscape */
+        @media screen 
+        and (device-width: 320px) 
+        and (device-height: 640px) 
+        and (-webkit-device-pixel-ratio: 2) 
+        and (orientation: landscape) {
+
+        }
+
+        /* ----------- Galaxy S4, S5 and Note 3 ----------- */
+
+        /* Portrait and Landscape */
+        @media screen 
+        and (device-width: 320px) 
+        and (device-height: 640px) 
+        and (-webkit-device-pixel-ratio: 3) {
+
+        }
+
+        /* Portrait */
+        @media screen 
+        and (device-width: 320px) 
+        and (device-height: 640px) 
+        and (-webkit-device-pixel-ratio: 3) 
+        and (orientation: portrait) {
+
+        }
+
+        /* Landscape */
+        @media screen 
+        and (device-width: 320px) 
+        and (device-height: 640px) 
+        and (-webkit-device-pixel-ratio: 3) 
+        and (orientation: landscape) {
+
+        }
+
+        /* ----------- Galaxy S6 ----------- */
+
+        /* Portrait and Landscape */
+        @media screen 
+        and (device-width: 360px) 
+        and (device-height: 640px) 
+        and (-webkit-device-pixel-ratio: 4) {
+
+        }
+
+        /* Portrait */
+        @media screen 
+        and (device-width: 360px) 
+        and (device-height: 640px) 
+        and (-webkit-device-pixel-ratio: 4) 
+        and (orientation: portrait) {
+
+        }
+
+        /* Landscape */
+        @media screen 
+        and (device-width: 360px) 
+        and (device-height: 640px) 
+        and (-webkit-device-pixel-ratio: 4) 
+        and (orientation: landscape) {
+
+        }
+                    /* ----------- iPad 1, 2, Mini and Air ----------- */
+
+            /* Portrait and Landscape */
+            @media only screen 
+            and (min-device-width: 768px) 
+            and (max-device-width: 1024px) 
+            and (-webkit-min-device-pixel-ratio: 1) {
+
+            }
+
+            /* Portrait */
+            @media only screen 
+            and (min-device-width: 768px) 
+            and (max-device-width: 1024px) 
+            and (orientation: portrait) 
+            and (-webkit-min-device-pixel-ratio: 1) {
+
+            }
+
+            /* Landscape */
+            @media only screen 
+            and (min-device-width: 768px) 
+            and (max-device-width: 1024px) 
+            and (orientation: landscape) 
+            and (-webkit-min-device-pixel-ratio: 1) {
+
+            }
+
+            /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+            /* Portrait and Landscape */
+            @media only screen 
+            and (min-device-width: 768px) 
+            and (max-device-width: 1024px) 
+            and (-webkit-min-device-pixel-ratio: 2) {
+
+            }
+
+            /* Portrait */
+            @media only screen 
+            and (min-device-width: 768px) 
+            and (max-device-width: 1024px) 
+            and (orientation: portrait) 
+            and (-webkit-min-device-pixel-ratio: 2) {
+
+            }
+
+            /* Landscape */
+            @media only screen 
+            and (min-device-width: 768px) 
+            and (max-device-width: 1024px) 
+            and (orientation: landscape) 
+            and (-webkit-min-device-pixel-ratio: 2) {
+
+            }
+
+            /* ----------- iPad Pro 10.5" ----------- */
+
+            /* Portrait and Landscape */
+            @media only screen 
+            and (min-device-width: 834px) 
+            and (max-device-width: 1112px)
+            and (-webkit-min-device-pixel-ratio: 2) {
+
+            }
+
+            /* Portrait */
+            /* Declare the same value for min- and max-width to avoid colliding with desktops */
+            /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+            @media only screen 
+            and (min-device-width: 834px) 
+            and (max-device-width: 834px) 
+            and (orientation: portrait) 
+            and (-webkit-min-device-pixel-ratio: 2) {
+
+            }
+
+            /* Landscape */
+            /* Declare the same value for min- and max-width to avoid colliding with desktops */
+            /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+            @media only screen 
+            and (min-device-width: 1112px) 
+            and (max-device-width: 1112px) 
+            and (orientation: landscape) 
+            and (-webkit-min-device-pixel-ratio: 2) {
+
+            }
+
+            /* ----------- iPad Pro 12.9" ----------- */
+
+            /* Portrait and Landscape */
+            @media only screen 
+            and (min-device-width: 1024px) 
+            and (max-device-width: 1366px)
+            and (-webkit-min-device-pixel-ratio: 2) {
+
+            }
+
+            /* Portrait */
+            /* Declare the same value for min- and max-width to avoid colliding with desktops */
+            /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+            @media only screen 
+            and (min-device-width: 1024px) 
+            and (max-device-width: 1024px) 
+            and (orientation: portrait) 
+            and (-webkit-min-device-pixel-ratio: 2) {
+
+            }
+
+            /* Landscape */
+            /* Declare the same value for min- and max-width to avoid colliding with desktops */
+            /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+            @media only screen 
+            and (min-device-width: 1366px) 
+            and (max-device-width: 1366px) 
+            and (orientation: landscape) 
+            and (-webkit-min-device-pixel-ratio: 2) {
+
+            }
+                        /* ----------- Non-Retina Screens ----------- */
+            @media screen 
+            and (min-device-width: 1200px) 
+            and (max-device-width: 1600px) 
+            and (-webkit-min-device-pixel-ratio: 1) { 
+            }
+
+            /* ----------- Retina Screens ----------- */
+            @media screen 
+            and (min-device-width: 1200px) 
+            and (max-device-width: 1600px) 
+            and (-webkit-min-device-pixel-ratio: 2)
+            and (min-resolution: 192dpi) { 
+            }
+    </style> 
+</head>
+<body>
+    <header>
+        <h1>Multiple Choice Quiz App Demo !!!</h1>
+        <p ><strong>Target:</strong>  To have validation messages at the bottom of each question.</p>
+        <p>Code programmed using HTML, CSS(Bootstrap), and Javascript.</p>
+       
+      </header>
+      <main>
+
+          <div  class="container">
+              <div class="row">                             
+
+                <!-- Card One -- Making Use Of Radio Button   -->
+                  <div class="col-md-3 mb-4">
+                      <h5>Radio Button Defined Questions.</h5>
+                      <hr>
+                      <p>Click the Image below to bring down the List of questions</p>
+                      <div  class="card" style="width:18rem;">
+                          <img class="card-img-top" src="img/nature.jpg" alt="" data-toggle="collapse" data-target="#demo">
+                          <div class="card-body">
+                              
+                                    <div style=" border-radius: 10px ;" id="demo" class="collapse" width ="18rem">
+                                  <hr />
+                                   
+                                  <div >
+                                      <!-- Card One Question One -->
+                                      <label for="">
+                                          <strong>The portion of the earth and its environment which can support life is known as ..........</strong>
+                                      </label>
+                                          
+                                      
+                                          <input type="radio" id="q1o1" name="q1-option" value="crust">
+                                          <label for="q1o1">Crust</label>
+                                          <br>
+                                          <input type="radio" id="q1o2" name="q1-option" value="biosphere">
+                                          <label for="q1o2">Biosphere</label>
+                                          <br>
+                                          <input type="radio" id="q1o3" name="q1-option" value="exosphere">
+                                          <label for="q1o3">Exosphere</label>
+                                          <br>
+                                          <input type="radio" id="q1o4" name="q1-option" value="atmosphere">
+                                          <label for="q1o4">Atmosphere</label>
+                                          <br>
+                                          <label for="" id="q1-selected"></label>
+                                      
+                                  </div>
+                                  <hr />
+                                  <div>
+                                      <!-- Card One Question Two -->
+                                      <label for="">
+                                          <strong> The ocean covers .......... percentage of the Earth's Surface.</strong>
+                                      </label>
+                                          <input type="radio" id="q2o1" name="q2-option" value="51%">
+                                          <label for="q2o1">51%</label>
+                                          <br>
+                                          <input type="radio" id="q2o2" name="q2-option" value="61%">
+                                          <label for="q2o2">61%</label>
+                                          <br>
+                                          <input type="radio" id="q2o3" name="q2-option" value="71%">
+                                          <label for="q2o3">71%</label>
+                                          <br>
+                                          <input type="radio" id="q2o4" name="q2-option" value="91%">
+                                          <label for="q2o4">91%</label>
+                                          <br>
+                                          <label for="" id="q2-selected"></label>
+                                  </div>
+                                  <hr />
+                                  <div>
+                                      <!-- Card One Question Three -->
+                                      <label for="">
+                                          <strong>All forms of water that comes down on Earth, including rain, snow, hail etc. is known as ........</strong>
+                                      </label>
+                                          <input type="radio" id="q3o1" name="q3-option" value="calcification">
+                                          <label for="q3o1">Calcification</label>
+                                          <br>
+                                          <input type="radio" id="q3o2" name="q3-option" value="fixation">
+                                          <label for="q3o2">Fixation</label>
+                                          <br>
+                                          <input type="radio" id="q3o3" name="q3-option" value="precipitation">
+                                          <label for="q3o3">Precipitation</label>
+                                          <br>
+                                          <input type="radio" id="q3o4" name="q3-option" value="accumulation">
+                                          <label for="q3o4">Accumulation</label>
+                                          <br>
+                                          <label for="" id="q3-selected"></label>
+                                  </div>
+                                  <hr />
+                                  <div>
+                                      <a href="#" id="eval1" class="btn btn-success" > 
+                                          Evaluate Yourself
+                                      </a>
+                                  </div>
+                                  <hr />
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                       
+                  <!-- Card Two -- Making Use Of CheckBoxes     -->
+                  <div class="col-md-3 mb-4">
+                    <h5>CheckBox Defined Questions.</h5>
+                    <hr>
+                    <p>Click the Image below to bring down the List of questions</p>
+                      <div  class="card" style="width:18rem;">
+                          <img class="card-img-top" src="img/nature-2.jpg" alt="" data-toggle="collapse" data-target="#demo2">
+                          <div class="card-body" >
+                            
+                              <div style=" border-radius: 10px ;" id="demo2" class="collapse">
+                                  <hr />
+                                  <div >
+                                      <!-- Card Two Question One -->
+                                      <label for="">
+                                          <strong>The portion of the earth and its environment which can support life is known as ..........</strong>
+                                      </label>
+                                     
+                                          <label for="q1o1"> <input type="checkbox" class="q-one" name="q1-opt" value="crust"> Crust</label>
+                                          <br>
+                                          <label for="q1o2"><input type="checkbox" class="q-one" name="q1-opt" value="biosphere"> Biosphere</label>
+                                          <br>
+                                          <label for="q1o3"><input type="checkbox" class="q-one" name="q1-opt" value="exosphere"> Exosphere</label>
+                                          <br>
+                                          <label for="q1o4"><input type="checkbox" class="q-one" name="q1-opt" value="atmosphere"> Atmosphere</label>
+                                          <br>
+                                         <label for="" id="q1-select"></label>
+                                      
+                                  </div>
+                                  <hr />
+                                  <div>
+                                      <!-- Card Two Question Two -->
+                                      <label for="">
+                                          <strong> The ocean covers .......... percentage of the Earth's Surface.</strong>
+                                      </label>
+                                          <label for="q2o1"><input type="checkbox" class="q-two" name="q2-opt" value="51%"> 51%</label>
+                                          <br>
+                                          <label for="q2o2"><input type="checkbox" class="q-two" name="q2-opt" value="61%"> 61%</label>
+                                          <br>
+                                          <label for="q2o3"><input type="checkbox" class="q-two" name="q2-opt" value="71%"> 71% </label>
+                                          <br>
+                                          <label for="q2o4"><input type="checkbox" class="q-two" name="q2-opt" value="91%"> 91% </label>
+                                          <br>
+                                          <label for="" id="q2-select"></label>
+                                  </div>
+                                  <hr />
+                                  <div>
+                                      <!-- Card Two Question Three -->
+                                      <label for="">
+                                          <strong>All forms of water that comes down on Earth, including rain, snow, hail etc. is known as ........</strong>
+                                      </label>
+                                          <label for="q3o1"><input type="checkbox" class="q-three" name="q3-opt" value="calcification">  Calcification</label>
+                                          <br>
+                                          <label for="q3o2"><input type="checkbox" class="q-three" name="q3-opt" value="fixation">  Fixation</label>
+                                          <br>
+                                          <label for="q3o3"><input type="checkbox" class="q-three" name="q3-opt" value="precipitation">  Precipitation</label>
+                                          <br>
+                                          <label for="q3o4"><input type="checkbox" class="q-three" name="q3-opt" value="accumulation">  Accumulation</label>
+                                          <br>
+                                          <label for="" id="q3-select"></label>
+                                  </div>
+                                  <hr />
+                                  <div>
+                                      <a href="#" id="eval2" class="btn btn-success" > 
+                                          Evaluate Yourself
+                                      </a>
+                                  </div>
+                                  <hr />
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Instructions  -->
+                  <div id="cont"class="col-md-6 mb-4">
+                    <hr>
+                    <div  class="card" style="width:18rem;">
+                        <img class="card-img-top" src="img/ex.jpg" alt="">
+                    </div>
+                    <p>Multiple choice, objective response, or MCQ (for Multiple Choice Question) is a form of an objective assessment in which respondents are asked to select only correct answers from the choices offered as a list. The multiple choice format is most frequently used in educational testing, in market research, and in elections, when a person chooses between multiple candidates, parties, or policies. <a href="https://en.wikipedia.org/wiki/Multiple_choice">wikipedia source</a></p>
+                  </div>
+                  
+</body>
+<script>
+
+// Radio Box Evaluation (#eval1)
+
+        eval1 = document.getElementById('eval1');
+        eval1.onclick =  () => 
+        {   
+            // Radio Button Question One
+
+             var q1 = document.getElementsByName("q1-option");    
+             var no1_ans; 
+             var flag = false;   
+             for (var i = 0; i < q1.length; i++) 
+             {        
+                 if (q1[i].checked === true) 
+                 {      
+                     flag = true;      
+                     no1_ans = q1[i].value;
+                     console.log(no1_ans);            
+                      break
+                 } 
+                
+             }    
+             if (flag)
+             {
+                if (no1_ans != "exosphere")
+                {        
+                    document.getElementById("q1-selected").textContent = " Incorrect: Correct Answer is Exosphere. ";
+                    document.getElementById("q1-selected").style.color = "red";
+                    
+                }
+                else 
+                {        
+                    document.getElementById("q1-selected").textContent = " Correct: The exosphere is the most distance layer of earth's atmosphere it is the layer that is the planet's first line of defense against the sun's rays. It is also the first layer to come into contact and protect the earth from meteors, asteroids, and cosmic rays.";
+                    document.getElementById("q1-selected").style.color = "green";
+                };
+             }
+             else
+             {
+                document.getElementById("q1-selected").textContent = "Question Not Answered";
+                document.getElementById("q1-selected").style.color = "grey";
+                
+             }
+            
+            
+             // Radio Button Question Two
+             var q2 = document.getElementsByName("q2-option");    
+             var no2_ans;    
+             var flag = false; 
+             for (var i = 0; i < q2.length; i++) 
+             {        
+                 if (q2[i].checked === true) 
+                 {            
+                    flag = true;
+                     no2_ans = q2[i].value;
+                     break 
+                 } 
+             } 
+             if (flag)
+             {
+                                
+                if (no2_ans != "71%")
+                {        
+                    document.getElementById("q2-selected").textContent = " Incorrect: Correct Answer is 71% ";
+                    document.getElementById("q2-selected").style.color = "red";
+                
+                }
+                else 
+                {        
+                    document.getElementById("q2-selected").textContent = " Correct: About 71 percent of the Earth's surface is water-covered, and the oceans hold about 96.5 percent of all Earth's water. Water also exists in the air as water vapor, in rivers and lakes, in icecaps and glaciers, in the ground as soil moisture and in aquifers, and even in you and your dog.";
+                    document.getElementById("q2-selected").style.color = "green";
+                };
+             }
+             else
+             {
+                document.getElementById("q2-selected").textContent = "Question Not Answered";
+                document.getElementById("q2-selected").style.color = "grey";
+                
+             }
+            
+ 
+            // Radio Button Question Three
+             var q3 = document.getElementsByName("q3-option");    
+             var no3_ans;    
+             var flag = false; 
+             for (var i = 0; i < q3.length; i++) 
+             {        
+                 if (q3[i].checked === true) 
+                 {            
+                    flag = true;
+                     no3_ans = q3[i].value;
+                     break 
+                 } 
+             } 
+             if (flag)
+             {
+                                
+                if (no3_ans != "precipitation")
+                {        
+                    document.getElementById("q3-selected").textContent = " Incorrect: Correct Answer is Precipitation";
+                    document.getElementById("q3-selected").style.color = "red";
+                //document.
+                }
+                else 
+                {        
+                    document.getElementById("q3-selected").textContent = " Correct: Precipitation is water released from clouds in the form of rain, freezing rain, sleet, snow, or hail. It is the primary connection in the water cycle that provides for the delivery of atmospheric water to the Earth. Most precipitation falls as rain.";
+                    document.getElementById("q3-selected").style.color = "green";
+                };
+             }
+             else
+             {
+                document.getElementById("q3-selected").textContent = "Question Not Answered";
+                document.getElementById("q3-selected").style.color = "grey";
+                
+             }
+        }     
+        
+
+// CheckBox Evaluation
+
+    $("input:checkbox").on('click', function() 
+    {
+        var $box = $(this);
+        if ($box.is(":checked"))
+        {
+            var group = "input:checkbox[name='" + $box.attr("name") + "']";
+            $(group).prop("checked", false);
+            $box.prop("checked", true);
+        } 
+        else 
+        {
+            $box.prop("checked", false);
+        }
+    }
+    );
+
+    eval2 = document.getElementById('eval2');
+    eval2.onclick =  () => 
+    {    
+        //CheckBox Question One   
+           
+        var q1 = document.getElementsByName("q1-opt");
+        var no1_ans; 
+        var flag = false; 
+        for(var i=0; q1[i]; ++i)
+        {
+            if(q1[i].checked)
+            {
+                flag = true;
+                no1_ans = q1[i].value;
+                // Confirm The Selected CheckBox Item
+                console.log(no1_ans);
+               
+                break;
+            }
+        }
+        if(flag)
+        {
+            
+            if (no1_ans != "exosphere")
+                {        
+                    
+                    document.getElementById("q1-select").textContent = " Incorrect: Correct Answer is Exosphere. ";
+                    document.getElementById("q1-select").style.color = "red";
+                    
+                }
+                else 
+                {        
+                    document.getElementById("q1-select").textContent = " Correct: The exosphere is the most distance layer of earth's atmosphere it is the layer that is the planet's first line of defense against the sun's rays. It is also the first layer to come into contact and protect the earth from meteors, asteroids, and cosmic rays. ";
+                    document.getElementById("q1-select").style.color = "green";
+                };
+        }
+        else
+        {
+            
+            document.getElementById("q1-select").textContent = "Question Not Answered";
+            document.getElementById("q1-select").style.color = "grey";
+                
+        }
+        
+        //CheckBox Question Two  
+           
+        var q2 = document.getElementsByName("q2-opt");
+        var no2_ans; 
+        var flag = false; 
+        for(var i=0; q2[i]; ++i)
+        {
+            if(q2[i].checked)
+            {
+                flag = true;
+                no2_ans = q2[i].value;
+                // Confirm The Selected CheckBox Item
+                console.log(no2_ans);
+               
+                break;
+            }
+        }
+        if(flag)
+        {
+            
+            if (no2_ans != "71%")
+                {        
+                    
+                    document.getElementById("q2-select").textContent = " Incorrect: Correct Answer is 71%. ";
+                    document.getElementById("q2-select").style.color = "red";
+                    
+                }
+                else 
+                {        
+                    document.getElementById("q2-select").textContent = " Correct: About 71 percent of the Earth's surface is water-covered, and the oceans hold about 96.5 percent of all Earth's water. Water also exists in the air as water vapor, in rivers and lakes, in icecaps and glaciers, in the ground as soil moisture and in aquifers, and even in you and your dog.";
+                    document.getElementById("q2-select").style.color = "green";
+                };
+        }
+        else
+        {
+            
+            document.getElementById("q2-select").textContent = "Question Not Answered";
+            document.getElementById("q2-select").style.color = "grey";
+                
+        }
+        
+         //CheckBox Question Three  
+           
+        var q3 = document.getElementsByName("q3-opt");
+        var no3_ans; 
+        var flag = false; 
+        for(var i=0; q3[i]; ++i)
+        {
+            if(q3[i].checked)
+            {
+                flag = true;
+                no3_ans = q3[i].value;
+                // Confirm The Selected CheckBox Item
+                console.log(no3_ans);
+               
+                break;
+            }
+        }
+        if(flag)
+        {
+            
+            if (no3_ans != "precipitation")
+                {        
+                    
+                    document.getElementById("q3-select").textContent = " Incorrect: Correct Answer is Precipitation. ";
+                    document.getElementById("q3-select").style.color = "red";
+                    
+                }
+                else 
+                {        
+                    document.getElementById("q3-select").textContent = " Correct: Precipitation is water released from clouds in the form of rain, freezing rain, sleet, snow, or hail. It is the primary connection in the water cycle that provides for the delivery of atmospheric water to the Earth. Most precipitation falls as rain. ";
+                    document.getElementById("q3-select").style.color = "green";
+                };
+        }
+        else
+        {
+            
+            document.getElementById("q3-select").textContent = "Question Not Answered";
+            document.getElementById("q3-select").style.color = "grey";
+                
+        }
+        
+    }
+
+
+
+</script>
+
+</html>
+ 
